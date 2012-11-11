@@ -8,6 +8,13 @@ group :development, :test do
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2'
+
+  gem 'wirble'
+  gem 'interactive_editor'
+end
+
+group :development do
+  gem 'annotate', '2.5.0'
 end
 
 group :assets do
