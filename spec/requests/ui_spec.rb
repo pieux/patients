@@ -14,7 +14,7 @@ describe "UI" do
   describe "sign up page" do
 
     it "should have the title 'Sign Up'" do
-      visit '/ui/sign_up'
+      visit '/ui/signup'
       page.should have_selector('title',
                                text: "Sign Up | Patients")
     end
@@ -23,7 +23,7 @@ describe "UI" do
   describe "log in page" do
 
     it "should have the title 'Log In'" do
-      visit '/ui/log_in'
+      visit '/ui/login'
       page.should have_selector('title',
                                text: "Log In | Patients")
     end

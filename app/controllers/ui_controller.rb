@@ -5,9 +5,9 @@ class UiController < ApplicationController
   def about
   end
 
-  def sign_up
+  def signup
   end
 
-  def log_in
+  def login
   end
 end
