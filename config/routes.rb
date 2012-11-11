@@ -1,4 +1,12 @@
 Patients::Application.routes.draw do
+  get "ui/index"
+
+  get "ui/about"
+
+  get "ui/sign_up"
+
+  get "ui/log_in"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
