@@ -1,0 +1,28 @@
+<% provide(:title, 'Log In') %>
+
+<h2>Log In</h2>
+<div class="container">
+  <div class="span8 offset2">
+
+    <%= form_tag sessions_path, :class => "form-horizontal" do %>
+        <div class="control-group">
+          <%= label_tag :email, "Email", :class => "control-label" %>
+          <div class="controls">
+            <%= text_field_tag :email, params[:email] %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag :password, "Password", :class => "control-label" %>
+          <div class="controls">
+            <%= password_field_tag :password %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= submit_tag "Log in" %>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+</div>
