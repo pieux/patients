@@ -1,15 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-
 $(document).ready(function(){
 
-  $.post('ui/create_plan',
-    { content: $('#plan-content').val() },
-    function (data, textStatus, jqXHR) {
-      alert(data.content);
-    }
-  );
-  return false;
-
+  $('#plan-form').submit(function(){
+    var data = { content: $('#plan-content').val() };
+    $.ajax({
+      url: '/ui/create_plan',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+      success: function (result) {
+        alert(result.content);
+      },
+    });
+    return false;
+  })
 });
+
