@@ -10,4 +10,13 @@ class UiController < ApplicationController
 
   def login
   end
+
+  def plan
+    @plan = Plan.new(params[:content])
+  end
+
+  def create_plan
+    @plans = Plan.all
+    render :json => @plans
+  end
 end
