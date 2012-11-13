@@ -18,13 +18,18 @@
             <th>内容</th>
           </tr>
         </thead>
-        <tbody>
-        <tr>
-          <td>…</td>
-          <td>…</td>
-        </tr>
+        <tbody id="ache-tr-plans">
+          <script id="must-tr-plans" type="text/html" charset="utf-8">
+            {{#plans}}
+            <tr >
+              <td>{{created_at}}</td>
+              <td>{{content}}</td>
+            </tr>
+            {{/plans}}
+          </script>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+

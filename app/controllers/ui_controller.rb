@@ -14,6 +14,11 @@ class UiController < ApplicationController
   def plan
   end
 
+  def all_plans
+    @plans = Plan.all
+    render json: @plans
+  end
+
   def create_plan
     @plan = Plan.new(content: params[:content])
     if @plan.save
