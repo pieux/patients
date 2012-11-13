@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  // ++++++++++++++++ view layer ++++++++++++++++
+
   // fullfill template - ache-tr-plans
   $.getJSON('/ui/all_plans', function(result){
     var data = {"plans":[]};
@@ -9,6 +11,10 @@ $(document).ready(function(){
     var  html = Mustache.to_html(templ, data);
     $('#ache-tr-plans').html(html);
   });
+
+  // ++++++++++++++++ end of view layer ++++++++++++++++
+
+  // ++++++++++++++++ data layer ++++++++++++++++
 
   $('#plan-form').submit(function(){
     var data = { content: $('#plan-content').val() };
@@ -23,6 +29,8 @@ $(document).ready(function(){
     });
     return false;
   });
+
+  // ++++++++++++++++ end of data layer ++++++++++++++++
 
 });
 
