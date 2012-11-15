@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // ++++++++++++++++ view layer ++++++++++++++++
-  templ_tr_plans(); // fullfill template - ache-tr-plans
+  templ_tbody_plans(); // fullfill template - ache-tr-plans
   // ++++++++++++++++ end of view layer ++++++++++++++++
 
   // ++++++++++++++++ data layer ++++++++++++++++
@@ -17,16 +17,16 @@ $(document).ready(function(){
 
 // ++++++++++++++++ view layer ++++++++++++++++
 
-// fullfill template - ache-tr-plans
-function templ_tr_plans()
+// fullfill template - ache-tbody-plans
+function templ_tbody_plans()
 {
   $.getJSON('/ui/all_plans', function(result){
     var data = {"plans":[]};
     data["plans"] = result;
     // templates in script blocks
-    var templ = $('#must-tr-plans').html();
-    var  html = Mustache.to_html(templ, data);
-    $('#ache-tr-plans').html(html);
+    var templ = $('#must-tbody-plans').html();
+    var html = Mustache.to_html(templ, data);
+    $('#ache-tbody-plans').html(html);
   });
 
 }
@@ -35,15 +35,19 @@ function templ_tr_plans()
 // ++++++++++++++++ data layer ++++++++++++++++
 
 function plan_form_submit(){
-  $('#plan-form').submit(function(){
-    var data = { content: $('#plan-content').val() };
+  $('#plan-form').submit(function(e){
+    e.preventDefault();
+    var params = { content: $('#plan-content').val() };
     $.ajax({
       url: '/ui/create_plan',
       type: 'POST',
       dataType: 'json',
-      data: data,
+      data: params,
       success: function (result) {
-        alert(result.content);
+        // templates in script blocks
+        var templ =$('#must-tr-plan').html();
+        var html = Mustache.to_html(templ, result);
+        $(html).hide().appendTo($('#ache-tbody-plans:last')).fadeIn();
       },
     });
     return false;
