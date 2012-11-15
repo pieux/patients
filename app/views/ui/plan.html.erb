@@ -21,6 +21,7 @@
           </tr>
         </thead>
         <tbody id="ache-tbody-plans">
+          <!--Template for generationg table of all plans-->
           <script id="must-tbody-plans" type="text/html" charset="utf-8">
             {{#plans}}
               <tr id="plan-{{id}}">
@@ -39,22 +40,11 @@
             {{/plans}}
           </script>
         </tbody>
-        <script id="must-tr-plan" type="text/html" charset="utf-8">
-          <tr id="plan-{{id}}">
-            <td>
-              <a href="/delete_plan?id={{id}}" class="delete-plan">
-                <i class="icon-trash"></i>
-              </a>
-              &nbsp;
-              <a href="/update_plan?id={{id}}" class="update-plan">
-                <i class="icon-pencil"></i>
-              </a>
-            </td>
-            <td>{{created_at}}</td>
-            <td>{{content}}</td>
-          </tr>
-        </script>
+        <!--Template for generationg row of currently created plan-->
+        <%= render 'create_plan' %>
       </table>
+      <a href="#myModal" role="button" class="btn update-plan">Launch demo modal</a>
+      <%= render 'update_modal' %>
     </div>
   </div>
 </div>

@@ -4,10 +4,13 @@ $(document).ready(function(){
   templ_tbody_plans(); // fullfill template - ache-tr-plans
   // ++++++++++++++++ end of view layer ++++++++++++++++
 
+
   // ++++++++++++++++ data layer ++++++++++++++++
   plan_form_submit(); // create new plan
 
   $('.delete-plan').live('click', delete_plan); // delete plan via ID
+
+  $('.update-plan').live('click', update_plan);
   // ++++++++++++++++ end of data layer ++++++++++++++++
 
 });
@@ -18,8 +21,7 @@ $(document).ready(function(){
 // ++++++++++++++++ view layer ++++++++++++++++
 
 // fullfill template - ache-tbody-plans
-function templ_tbody_plans()
-{
+function templ_tbody_plans(){
   $.getJSON('/ui/all_plans', function(result){
     var data = {"plans":[]};
     data["plans"] = result;
@@ -54,8 +56,7 @@ function plan_form_submit(){
   });
 }
 
-function delete_plan(e)
-{
+function delete_plan(e){
   e.preventDefault();
   var parent = $(this).closest("tr");
   $.get('/ui/delete_plan',
@@ -69,4 +70,8 @@ function delete_plan(e)
   return false;
 }
 
+function update_plan(e){
+  e.preventDefault();
+  $('#myModal').modal('show');
+}
 // ++++++++++++++++ end of data layer ++++++++++++++++
