@@ -27,4 +27,12 @@ class UiController < ApplicationController
       nil
     end
   end
+
+  def delete_plan
+    @plan = Plan.find(params[:id])
+    @plan.delete
+
+    head :no_content
+
+  end
 end

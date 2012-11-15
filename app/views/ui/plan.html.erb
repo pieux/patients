@@ -11,9 +11,11 @@
   </div>
   <div class="row">
     <div class="span8 offset2">
-      <table class="table">
+      <table class="table table-bordered">
         <thead>
           <tr>
+          <tr>
+            <th>操作</th>
             <th>时间</th>
             <th>内容</th>
           </tr>
@@ -21,7 +23,8 @@
         <tbody id="ache-tr-plans">
           <script id="must-tr-plans" type="text/html" charset="utf-8">
             {{#plans}}
-            <tr >
+            <tr id="plan-{{id}}">
+              <td><div class="delete-plan" ><i class="icon-remove"></i></div></td>
               <td>{{created_at}}</td>
               <td>{{content}}</td>
             </tr>
