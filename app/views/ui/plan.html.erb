@@ -20,18 +20,30 @@
             <th>内容</th>
           </tr>
         </thead>
-        <tbody id="ache-tr-plans">
-          <script id="must-tr-plans" type="text/html" charset="utf-8">
-            {{#plans}}
+        <tbody id="ache-tbody-plans">
+          <!--Template for generationg table of all plans-->
+        </tbody>
+        <script id="must-tbody-plans" type="text/html" charset="utf-8">
+          {{#plans}}
             <tr id="plan-{{id}}">
-              <td><div class="delete-plan" ><i class="icon-remove"></i></div></td>
+              <td>
+                <a href="/delete_plan?id={{id}}" class="delete-plan">
+                  <i class="icon-trash"></i>
+                </a>
+                &nbsp;
+                <a href="/update_plan?id={{id}}" class="launch-update-plan">
+                  <i class="icon-pencil"></i>
+                </a>
+              </td>
               <td>{{created_at}}</td>
               <td>{{content}}</td>
             </tr>
-            {{/plans}}
-          </script>
-        </tbody>
+          {{/plans}}
+        </script>
+        <!--Template for generationg row of currently created plan-->
+        <%= render 'create_plan' %>
       </table>
+      <%= render 'update_modal' %>
     </div>
   </div>
 </div>

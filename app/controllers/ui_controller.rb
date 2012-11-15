@@ -33,6 +33,15 @@ class UiController < ApplicationController
     @plan.delete
 
     head :no_content
-
+  end
+  
+  def update_plan
+    @plan = Plan.find(params[:id])
+    if @plan.update_attributes(content: params[:content])
+      #render json: @plan
+      redirect_to plan_url
+    else
+      nil
+    end
   end
 end

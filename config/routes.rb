@@ -7,6 +7,7 @@ Patients::Application.routes.draw do
 
   # decline get
   post "all_plans" => "ui#all_plans"
+  get "plan" => "ui#plan", as: "plan"
   match "ui(/:action)", :controller => "ui"
 
   get "signup" => "users#new", :as => "signup"
