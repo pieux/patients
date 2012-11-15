@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   $('.launch-update-plan').live('click', launch_update_plan);
 
-  //update_plan_form();
+  update_plan_form();
   // ++++++++++++++++ end of data layer ++++++++++++++++
 
 });
@@ -87,27 +87,30 @@ function launch_update_plan(e){
   $('#updateModal').modal('show');
 }
 
-//function update_plan_form(){
-  //$('#update-plan-form').submit(function(e){
-    //e.preventDefault();
-    //var params = {
-      //id: $('#update-plan-id').val(),
-      //content: $('#update-plan-content').val()
-    //};
-    //$.ajax({
-      //url: '/ui/update_plan',
-      //type: 'POST',
-      //dataType: 'json',
-      //data: params,
-      //success: function (result) {
-         //templates in script blocks
-        //var templ =$('#must-tr-plan').html();
-        //var html = Mustache.to_html(templ, result);
-        //$(html).hide().appendTo($('#ache-tbody-plans:last')).fadeIn();
-        //$('#plan-'+result.id).replace(html);
-      //},
-    //});
-    //return false;
+function update_plan_form(){
+  //$('#update-plan-submit').live('click',function(){
+  // seems can bind 'submit' using live
+  $('#update-plan-form').live('submit',function(e){
+    //$(this).closest('form').submit(function(e){
+      e.preventDefault();
+      var params = {
+        id: $('#update-plan-id').val(),
+        content: $('#update-plan-content').val()
+      };
+      $.ajax({
+        url: '/ui/update_plan',
+        type: 'POST',
+        dataType: 'json',
+        data: params,
+        success: function (result) {
+          var templ =$('#must-tr-plan').html();
+          var html = Mustache.to_html(templ, result);
+          $('#plan-'+result.id).replaceWith(html);
+        },
+      });
+      return false;
+    });
   //});
-//}
+}
+
 // ++++++++++++++++ end of data layer ++++++++++++++++

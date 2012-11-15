@@ -38,8 +38,8 @@ class UiController < ApplicationController
   def update_plan
     @plan = Plan.find(params[:id])
     if @plan.update_attributes(content: params[:content])
-      #render json: @plan
-      redirect_to plan_url
+      render json: @plan
+      #redirect_to plan_url
     else
       nil
     end
