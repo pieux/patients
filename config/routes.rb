@@ -13,8 +13,7 @@ Patients::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
-  root :to => "users#new"
-
+  root :to => "ui#plan"
   resources :users
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 end
