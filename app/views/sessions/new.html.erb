@@ -19,7 +19,8 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <%= submit_tag "Log in" %>
+            <%= submit_tag "Log in", class: "btn btn-primary" %>
+            New user?<%= link_to "Sign up Now", signup_path %>
           </div>
         </div>
       <% end %>

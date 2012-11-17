@@ -47,7 +47,8 @@
 
     <div class="control-group">
       <div class="controls">
-          <%= f.submit %>
+          <%= f.submit "Sign up", class: "btn btn-primary" %>
+          Already signed up, <%= link_to "login in", login_path %>
       </div>
     </div>
   <% end %>
