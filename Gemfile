@@ -29,6 +29,7 @@ end
 
 gem 'jquery-rails', '2.0.2'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bootstrap-datepicker-rails'
 
 group :test do
   gem 'capybara', '1.1.2'

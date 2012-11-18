@@ -12,3 +12,4 @@ class Patient < ActiveRecord::Base
       p.update_column(:medical_record_number, "MR<#{p.id}>")
     end
 end
+

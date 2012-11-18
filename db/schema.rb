@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(:version => 20121117172003) do
 
   create_table "patients", :force => true do |t|
-    t.string   "first_name"
+    t.string   "first_name",            :null => false
     t.string   "middle_name"
-    t.string   "last_name"
+    t.string   "last_name",             :null => false
     t.string   "medical_record_number"
     t.date     "birthdate"
     t.string   "gender"

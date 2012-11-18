@@ -18,39 +18,21 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :medical_record_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :medical_record_number, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :birthdate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :birthdate, :class => 'date_select' %>
+      <%= f.text_field :birthdate, :class => 'datepicker' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :gender, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :gender, :class => 'text_field' %>
+      <%= f.select :gender, ["Not available", "Male", "Female"]%>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :status, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :view_count, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :view_count, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :user_id, :class => 'number_field' %>
+      <%= f.select :status, ["Initial", "Referred", "Treatment", "Closed"]%>
     </div>
   </div>
 
