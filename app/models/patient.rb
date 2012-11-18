@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  has_and_belongs_to_many :location
   attr_accessible :birthdate, :first_name, :gender, :last_name, :middle_name, :status, :user_id, :view_count
   validates :first_name, :last_name, :status, :presence => true
 

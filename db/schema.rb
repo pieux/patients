@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117172003) do
+ActiveRecord::Schema.define(:version => 20121118103004) do
+
+  create_table "locations", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "patients", :force => true do |t|
-    t.string   "first_name",            :null => false
+    t.string   "first_name"
     t.string   "middle_name"
-    t.string   "last_name",             :null => false
+    t.string   "last_name"
     t.string   "medical_record_number"
     t.date     "birthdate"
     t.string   "gender"
