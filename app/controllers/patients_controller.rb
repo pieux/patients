@@ -11,6 +11,7 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @patient.update_column(:view_count, @patient.view_count + 1)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,10 +30,16 @@ class PatientsController < ApplicationController
 
   def edit
     @patient = Patient.find(params[:id])
+
+    if @patient.user_id != current_user.id
+      redirect_to patients_url, notice: 'You can only edit your info'
+    end
   end
 
   def create
     @patient = Patient.new(params[:patient])
+    @patient.view_count = 0
+    @patient.user_id = current_user.id
 
     respond_to do |format|
       if @patient.save
