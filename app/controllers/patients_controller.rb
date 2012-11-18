@@ -22,6 +22,7 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
 
+    @locations = Location.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @patient }
@@ -31,6 +32,7 @@ class PatientsController < ApplicationController
   def edit
     @patient = Patient.find(params[:id])
 
+    @locations = Location.all
     if @patient.user_id != current_user.id
       redirect_to patients_url, notice: 'You can only edit your info'
     end
