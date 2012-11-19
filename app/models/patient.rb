@@ -10,7 +10,9 @@ class Patient < ActiveRecord::Base
       # refer to
       # http://stackoverflow.com/questions/632742/how-can-i-avoid-running-activerecord-callbacks
       p = Patient.find(self.id)
-      p.update_column(:medical_record_number, "MR<#{p.id}>")
+      #p.update_column(:medical_record_number, "MR<#{p.id}>")
+      mrnum = "MR<#{p.id}>".rjust 6, '0'
+      p.update_column(:medical_record_number, mrnum)
     end
 end
 
