@@ -1,0 +1,12 @@
+<% if @user.errors.any?  %>
+  <div class="error_messages alert alert-error">
+    <h4>Form is invalid</h4>
+    <ul>
+      <% for msg in @user.errors.full_messages %>
+        <li>
+      <%= msg %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

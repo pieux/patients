@@ -1,0 +1,21 @@
+<!-- Modal -->
+<div id="updateModal" class="modal hide fade" tabindex="-1" role="dialog" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3>Update Plan</h3>
+  </div>
+  <div class="modal-body">
+  <div id="ache-form-update-plan">
+  </div>
+  <script id="must-form-update-plan" type="text/html">
+    <form class="well form-inline" id="update-plan-form" action="/ui/update_plan">
+      <input type="hidden" id="update-plan-id" name="id" value="{{id}}">
+      <input type="text" id="update-plan-content" name="content" class="span4" placeholder="{{content}}">
+      <button type="submit" id="update-plan-submit" class="btn pull-right">Update</button>
+    </form>
+  </script>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>

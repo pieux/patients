@@ -1,0 +1,50 @@
+<% provide(:title, 'Create a Plan') %>
+
+<div class="container">
+  <div class="row">
+    <div class="span6 offset3">
+      <form class="well form-inline" id="plan-form">
+        <input type="text" id="plan-content" name="content" class="span4" placeholder="today I am going to do...">
+        <button type="submit" class="btn pull-right">Plan</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8 offset2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+          <tr>
+            <th>操作</th>
+            <th>时间</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody id="ache-tbody-plans">
+          <!--Template for generationg table of all plans-->
+        </tbody>
+        <script id="must-tbody-plans" type="text/html" charset="utf-8">
+          {{#plans}}
+            <tr id="plan-{{id}}">
+              <td>
+                <a href="/delete_plan?id={{id}}" class="delete-plan">
+                  <i class="icon-trash"></i>
+                </a>
+                &nbsp;
+                <a href="/update_plan?id={{id}}" class="launch-update-plan">
+                  <i class="icon-pencil"></i>
+                </a>
+              </td>
+              <td>{{created_at}}</td>
+              <td>{{content}}</td>
+            </tr>
+          {{/plans}}
+        </script>
+        <!--Template for generationg row of currently created plan-->
+        <%= render 'create_plan' %>
+      </table>
+      <%= render 'update_modal' %>
+    </div>
+  </div>
+</div>
+
