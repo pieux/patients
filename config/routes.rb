@@ -16,4 +16,5 @@ Patients::Application.routes.draw do
   root :to => "ui#plan"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :patients
 end
